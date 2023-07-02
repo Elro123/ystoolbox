@@ -1,0 +1,60 @@
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			header {
+				position: fixed;
+				top: 0;
+				width: 100%;
+				height: 6vh;
+				background-color: #4ea4dc;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			header span {
+				color: #fff;
+				font-weight: 500;
+				font-size: 23px;
+			}
+
+			.view {
+				margin: 0 auto;
+				width: 90vw;
+				height: 60vh;
+				border: 1px #ccc solid;
+			}
+
+			.mytip {
+				display: block;
+				color: #545454;
+				margin: 19px;
+			}
+
+			.tip1 {
+				margin-top: 7vh;
+			}
+
+			button {
+				background-color: #4ea4dc;
+				color: white;
+				display: block;
+				margin: 0 auto;
+				width: 60vw;
+				height: 5vh;
+				border: 0;
+				font-size: 16px;
+				box-sizing: content-box;
+				border-radius: 5px;
+			}
+
+			.foot {
+				width: 100vw;
+				/* flex-direction: column;s */
+				text-align: center;
+				margin: 0 auto;
+				color: #ccc;
+				margin-top: 1vh;
+			}

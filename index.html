@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="./css/index.css">
+		<link rel="stylesheet" href="./css/layer.css">
+		<title>原友工具</title>
+		<header>
+			<span>原友工具</span>
+		</header>
+		<p class="mytip tip1">第一步，登录米游社</p>
+		<div class="view">
+			<iframe style="overflow: hidden;" width="100%" height="100%" src="https://user.mihoyo.com/"
+				frameborder="0"></iframe>
+		</div>
+		<p class="mytip tip2">第二步，获取链接并复制到剪切板</p>
+		<button class="csc">点击获取消费链接</button>
+		<br>
+		<button class="webview_gacha">点击获取抽卡链接</button>
+		<div class="foot">
+			<span>此应用仅供学习交流使用,禁止用于商业用途<br></span>
+			<span>——create by 原友小助手——</span>
+		</div>
+
+		<script src="js/md5.min.js"></script>
+		<script src="js/axios.min.js"></script>
+		<script src="js/getkey.js"></script>
+		<script src="js/layer.js"></script>
+		<script src="js/getkey.js" type="module"></script>
+		<script type="text/javascript">
+			document.addEventListener('plusready', function() {
+				document.querySelector('.csc').addEventListener('click', event('csc'))
+				document.querySelector('.webview_gacha').addEventListener('click', event('webview_gacha'))
+
+			})
+
+			function event(type) {
+				return async () => {
+					const authKey = await getKey(type)
+					if (!authKey) {
+						layer.open({
+							content: '请先登录',
+							skin: 'msg',
+							time: 3 //2秒后自动关闭
+						});
+						return
+					}
+					let transfer = document.createElement('input');
+					document.body.appendChild(transfer);
+					transfer.value = authKey
+					transfer.focus();
+					transfer.select();
+					document.execCommand('copy');
+					transfer.blur();
+					layer.open({
+						content: '已复制到剪切板',
+						skin: 'msg',
+						time: 3 //2秒后自动关闭
+					});
+					document.body.removeChild(transfer);
+				}
+			}
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>
